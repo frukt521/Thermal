@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ProjectGuid>{3463453a-0322-45f0-b9f7-40e0daf2243e}</ProjectGuid>
+    <avrdevice>ATmega8A</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>Thermal</AssemblyName>
+    <Name>Thermal</Name>
+    <RootNamespace>Thermal</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress />
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue />
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.19.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=8000000UL</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Control\Buttons\Buttons.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Buttons\Buttons.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Control.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Control.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\DS18B20\DS18B20.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\DS18B20\DS18B20.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\DS18B20\OneWire\OneWire.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\DS18B20\OneWire\OneWire.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\DS18B20\OneWire\OneWire_BitLevel.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\DS18B20\OneWire\OneWire_BitLevel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Heater\Heater.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Heater\Heater.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Indicate\Leds.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Indicate\Leds.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Indicate\SmartIndicate\SmartIndicate.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Indicate\SmartIndicate\SmartIndicate.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\SevenSeg.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\SevenSeg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\ShiftReg\ShiftReg.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\ShiftReg\ShiftReg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\ShiftReg\SPI_Drv\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\ShiftReg\SPI_Drv\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\SevenSeg\ShiftReg\SPI_Drv\SPI_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Timer0\Timer0.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Timer0\Timer0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Timer1\Timer1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Control\Timer1\Timer1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Thermal.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control\DS18B20\" />
+    <Folder Include="Control\DS18B20\OneWire\" />
+    <Folder Include="Control" />
+    <Folder Include="Control\Indicate" />
+    <Folder Include="Control\Indicate\SmartIndicate\" />
+    <Folder Include="Control\Buttons" />
+    <Folder Include="Control\Heater" />
+    <Folder Include="Control\Timer1" />
+    <Folder Include="Control\SevenSeg\" />
+    <Folder Include="Control\SevenSeg\ShiftReg\" />
+    <Folder Include="Control\SevenSeg\ShiftReg\SPI_Drv\" />
+    <Folder Include="Control\Timer0\" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
